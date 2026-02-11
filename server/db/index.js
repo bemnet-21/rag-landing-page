@@ -5,11 +5,15 @@ const { Pool } = pkg
 dotenv.config({ quiet: true })
 
 const pool = new Pool({
-    host: process.env.PG_HOST,
-    user: process.env.PG_USER,
-    database: process.env.PG_DATABASE,
-    password: process.env.PG_PASSWORD,
-    port: process.env.PG_PORT
+    // host: process.env.PG_HOST,
+    // user: process.env.PG_USER,
+    // database: process.env.PG_DATABASE,
+    // password: process.env.PG_PASSWORD,
+    // port: process.env.PG_PORT
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 })
 
 pool.on('connect', () => {
