@@ -12,6 +12,13 @@
 
 }
 
+body {
+  background: var(--color-paperWhite);
+  color: var(--color-softBlack);
+}
+
+
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
