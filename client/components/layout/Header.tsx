@@ -1,8 +1,10 @@
 'use client'
 import { RootState } from '@/store';
 import { logout } from '@/store/slices/auth.slice';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { FaPlus } from 'react-icons/fa';
 import { FiUser, FiLogOut, FiHexagon } from 'react-icons/fi'; // Standard clean icons
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -31,7 +33,16 @@ const Header = () => {
         </div>
       </div>
 
+      
+    
       <div className="flex items-center gap-4 md:gap-6">
+        {
+        (user?.role.toLowerCase() === 'admin') &&
+        <Link href={'/upload'} className="hidden md:flex items-center gap-2 text-gray-300 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5 group" aria-label="Upload">
+          <FaPlus className="text-mutedGold text-lg md:text-xl" />  
+          <div className="text-gray-300 hover:text-white transition-colors text-sm font-medium">Upload</div>
+        </Link>
+        }
         {
             (user) ? 
                 <button className="flex items-center gap-3 group focus:outline-none">

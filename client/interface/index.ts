@@ -15,3 +15,9 @@ export interface HeroCardProps {
     description: string
     icon: React.ElementType
 }
+
+export interface Document {
+    id: string
+    filename: string
+    file_type: string
+}
