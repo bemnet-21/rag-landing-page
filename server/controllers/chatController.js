@@ -10,7 +10,7 @@ dotenv.config()
 const embeddings = new VoyageEmbeddings({
     apiKey: process.env.VOYAGE_AI_API_KEY,
     inputType: "query",
-    modelName: "voyage-3"
+    modelName: "voyage-2"
 })
 
 const chatModel = new ChatGoogleGenerativeAI({
