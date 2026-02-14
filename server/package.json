@@ -12,19 +12,19 @@
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
-    "@langchain/community": "^1.1.14",
-    "@langchain/core": "^1.1.22",
-    "@langchain/google-genai": "^2.1.18",
-    "@langchain/openai": "^1.2.7",
-    "bcrypt": "^6.0.0",
-    "cors": "^2.8.6",
-    "dotenv": "^17.2.4",
-    "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
-    "multer": "^2.0.2",
-    "openai": "^6.21.0",
+    "@langchain/community": "^0.3.0",
+    "@langchain/core": "^0.3.0",
+    "@langchain/google-genai": "^0.1.0",
+    "@langchain/openai": "^0.3.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "openai": "^4.0.0",
     "pdf-parse": "^1.1.1",
-    "pg": "^8.18.0"
+    "pg": "^8.11.0"
   },
   "type": "module"
 }
