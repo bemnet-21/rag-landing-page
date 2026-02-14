@@ -9,3 +9,9 @@ export interface AuthGuardProps {
     children: React.ReactNode;
     allowedRoles?: string[];
 }
+
+export interface HeroCardProps {
+    label: string
+    description: string
+    icon: React.ElementType
+}

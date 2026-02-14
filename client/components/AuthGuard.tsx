@@ -33,6 +33,10 @@ const AuthGuard = ({ children, allowedRoles}: AuthGuardProps) => {
                     const currentTime = Date.now() / 1000
                     if((decodedUser as any).exp < currentTime) {
                         dispatch(logout())
+                        localStorage.clear()
+                        setIsChecking(false)
+                        router.replace('/login')
+                        return
                     }
                     dispatch(setUser({user: decodedUser, token}))
                 }
