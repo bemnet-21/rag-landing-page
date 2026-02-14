@@ -111,3 +111,25 @@ export const getDocuments = async (req, res) => {
         res.status(500).json({ message: "Internal server error" })
     }
 }
+
+export const deleteDocument = async (req, res) => {
+    const documentId = req.params.id
+    try {
+        const client = await db.connect()
+        try {
+            await client.query('BEGIN')
+            await client.query('DELETE FROM document_chunks WHERE document_id = $1', [documentId])
+            await client.query('DELETE FROM documents WHERE id = $1', [documentId])
+            await client.query('COMMIT')
+        } catch (err) {
+            await client.query('ROLLBACK')
+            throw err
+        } finally {
+            client.release()
+        }
+        res.status(200).json({ message: "Document deleted successfully" })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
