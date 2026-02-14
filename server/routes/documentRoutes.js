@@ -1,11 +1,13 @@
 import express from 'express'
 import multer from 'multer'
-import { uploadDocument } from '../controllers/documentController.js'
+import { getDocuments, uploadDocument } from '../controllers/documentController.js'
 import { protect } from '../middleware/authMiddleware.js'
+import { authorizeRoles } from '../middleware/roleMiddleware.js'
 
 const router = express.Router()
 const upload = multer({ dest: 'uploads/' })
 
-router.post('/upload', protect, upload.single('file'), uploadDocument)
+router.get('/', protect, authorizeRoles('ADMIN'), getDocuments)
+router.post('/upload', protect, authorizeRoles('ADMIN'), upload.single('file'), uploadDocument)
 
 export default router

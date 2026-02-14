@@ -96,3 +96,18 @@ export const uploadDocument = async (req, res) => {
         res.status(500).json({ message: "Internal server error" })
     }
 }
+
+export const getDocuments = async (req, res) => {
+    try {
+        const docResults = await db.query('SELECT id, filename, file_type FROM documents')
+        if(docResults.rows.length === 0) return res.status(404).json({ message: "No documents found" })
+        
+        res.status(200).json({ 
+            message: "Documents retrieved successfully",
+            data: docResults.rows 
+        })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ message: "Internal server error" })
+    }
+}
